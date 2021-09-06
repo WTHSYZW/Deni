@@ -65,7 +65,7 @@ ggplot() +
 ggplot() +
   annotation_map_tile(zoomin = 0, type = "cartodark") +
   geom_sf(data = Recreation, aes(fill = "open space"), alpha = 0.8, color = NA) +
-  geom_sf(data = Parklight3, aes(color = "Parklights"), shape = 21, size = 3, alpha = 0.5) +
+  geom_sf(data = Parklight3, aes(color = "Parklights"), shape = 21, size = 5, alpha = 0.5) +
   scale_fill_manual(values = "red", name = "") +
   scale_color_manual(values = "yellow", name = "") +
   labs(caption = "Map tiles and data by OpenStreetMap")
