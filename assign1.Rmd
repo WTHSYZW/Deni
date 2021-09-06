@@ -1,0 +1,67 @@
+---
+title: "Assign1"
+author: "Yuanzhao Wang"
+date: "9/6/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+```{r load packages, message=FALSE}
+Parklight <- st_read("INFRA_ParkLights.shp.zip")
+  Recreation <- st_read("RECREATION_OpenSpace.shp.zip")
+  Streetlight <- st_read("INFRA_StreetLights.shp.zip")
+
+  recreation_plot <- ggplot(Recreation) +
+  geom_sf()
+  
+  recreation_plot
+  
+  Parklight_plot <- ggplot(Parklight) +
+  geom_sf()
+  
+  Streetlight_plot <- ggplot(Streetlight) +
+  geom_sf()
+  
+  Streetlight_plot
+  
+  ggplot(Streetlight) +
+    geom_sf(shape = 13, color = 5, size = 1, alpha = 0.1)
+  
+    ggplot(Streetlight) +
+    geom_sf(shape = 13, color = 5, size = 1, alpha = 0.1) +
+    geom_sf(data = Recreation, color = "red",
+                               size = 3,
+                               fill = "green",
+                               alpha = 0.5)
+ 
+ 
+  ggplot(Recreation) +
+  annotation_map_tile(zoomin = 0) +
+  geom_sf(data = Streetlight, shape = 13, color = "blue", size = 1, alpha = 0.1) +
+  geom_sf(data = Recreation, color = "red",
+                             fill = "red",
+                             alpha = 0.5) +
+  labs(caption = "Map tiles and data by OpenStreetMap")
+  
+  
+  
+
+
+
+## Including Plots
+
+
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
